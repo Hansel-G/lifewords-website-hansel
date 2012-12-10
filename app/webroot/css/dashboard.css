@@ -21,18 +21,47 @@
 	padding:0;
 }
 
-#content{
-	clear: both;
-	margin-top: 5px;
-	padding: 10px 20px 0px 20px;
-	background-color:rgba(255,255,255,0.5);
-	border-radius: 30px;
-	width: 500px;
+body {
+	background-color:#036;
+	
+	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
 }
 
-#content #fields{
-	padding: 0px 0px 0px 17px;
+#dashboard{
+	background-color:#000;
+	height:40px;
 }
+
+#dashboard #dashbox{
+	background-color:#900;
+	height:40px;
+	width: 800px;
+}
+
+#dashboard #dashbox .iconbox{
+	background-color:#0F9;
+	height: 40px;
+	width:200px;
+	float:left;
+	
+}
+
+#container {
+	background-color:#033;
+	
+}
+
+#content{
+	font-size:90%;
+	clear:both;
+	background-color: rgba(255,255,255,.5);
+	padding: 30px 0px 0px 0px;
+	border-radius: 25px;
+	font-weight:bold;	
+	width: 800px;
+	min-height: 400px;
+}
+
 
 
 h3 {
@@ -44,11 +73,7 @@ h3 {
 
 
 /** General Style Info **/
-body {
-	background-image:url(../img/background.jpg);
-	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
-	font-size:90%;
-}
+
 
 a {
 	color: #003d4c;
@@ -92,9 +117,6 @@ p {
 }
 
 /** Layout **/
-#container {
-	text-align: left;
-}
 
 #header{
 	padding: 10px 20px;
@@ -204,7 +226,6 @@ input, textarea {
 	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
 	padding: 1%;
 	width:98%;
-	border-radius:10px;
 }
 select {
 	clear: both;

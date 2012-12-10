@@ -40,6 +40,18 @@ class UsersController extends AppController {
        		}
     	}	
 	}
+	
+	
+/**
+ * profile method
+ *
+ * @return void
+ */
+ 	public function profile(){
+		$this->layout = "dashboard";
+	}
+ 
+ 
 
 /**
  * login method
@@ -47,6 +59,7 @@ class UsersController extends AppController {
  * @return void
  */
  	public function login(){
+		$this->layout = 'frontpage';
 		if ($this->request->is('post')) {
         	if ($this->Auth->login()) {
 				$this->redirect($this->Auth->redirect());

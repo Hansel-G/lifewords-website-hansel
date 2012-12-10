@@ -16,7 +16,6 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -28,7 +27,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('frontpage');
+		echo $this->Html->css('dashboard');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -36,15 +35,33 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	?>
 </head>
 <body>
-<div align="center">
-        <?php echo $this->Html->image('lifewords.png',array('border'=>'0', 
-'width'=>'350', 'height'=>'120')); ?>
-</div>
-	<div align="center">
-	    <div id="content">
-			<?php echo $this->fetch('content'); ?>
-		</div>
-        <?php echo $this->Session->flash(); ?>
-	</div>
+
+    <div id="dashboard" align="center">
+    	<div id="dashbox" align="left">
+        	<div class="iconbox">
+            	icon 1
+            </div>
+            <div class="iconbox">
+            	icon 1
+            </div>
+            <div class="iconbox">
+            	icon 1
+            </div>
+            <div class="iconbox">
+            	icon 1
+            </div>
+            
+        </div>
+    </div>
+    
+    <div align="center">
+    <div id="container">
+    	<div id="content" align="center">
+			<?php echo $this->Session->flash(); ?>
+        	<?php echo $this->fetch('content'); ?>
+    	</div>
+    </div>
+    </div>
+        
 </body>
 </html>
