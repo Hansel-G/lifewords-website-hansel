@@ -26,7 +26,7 @@
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-
+		
 		echo $this->Html->css('dashboard');
 
 		echo $this->fetch('meta');
@@ -35,33 +35,35 @@
 	?>
 </head>
 <body>
-
-    <div id="dashboard" align="center">
-    	<div id="dashbox" align="left">
-        	<div class="iconbox">
-            	icon 1
-            </div>
-            <div class="iconbox">
-            	icon 1
-            </div>
-            <div class="iconbox">
-            	icon 1
-            </div>
-            <div class="iconbox">
-            	icon 1
-            </div>
-            
+<div id="wrap">
+    <div id="dashboard">
+	    <div id="logo">
+    		LifeWords
         </div>
+            
+		<div id="navpanel">
+            <?php echo $this->Html->link('Home', array('action' => 'profile', 'controller' => 'users')) ?> | <?php echo $this->Html->link('Shared Cards', array('action' => 'share', 'controller' => 'users')) ?> | <?php echo $this->Html->link('Settings', array('action' => 'settings', $user['User']['User_ID'], 'controller' => 'users')) ?> | <?php echo $this->Form->postLink('Logout', array('action' => 'logout', 'controller' => 'users'), null, 'Are you sure you want to log out?') ?>
+        </div>
+        
+        <div id="namebar">
+        		Hi <?php echo $nickname; ?>!
+        </div>        
+        
+        <div id="imagebar">
+        	<?php echo $this->Html->image('logosmall.png', array('height'=>'50'))?>
+        </div>
+    
     </div>
     
-    <div align="center">
-    <div id="container">
-    	<div id="content" align="center">
-			<?php echo $this->Session->flash(); ?>
+
+    	<div id="content">
         	<?php echo $this->fetch('content'); ?>
-    	</div>
+    	</div>    
+	<div id="floater"></div>
+    
+    <div id="footer" align="center">
+		© Copyright 2012, Simpledudes. All Rights Reserved.
     </div>
-    </div>
-        
+</div>  
 </body>
 </html>

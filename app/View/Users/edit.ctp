@@ -3,11 +3,8 @@
 	<fieldset>
 		<legend><?php echo __('Edit User'); ?></legend>
 	<?php
-		echo $this->Form->input('User_ID');
-		echo $this->Form->input('User_Email');
-		echo $this->Form->input('User_Password');
-		echo $this->Form->input('User_Profile_Photo');
 		echo $this->Form->input('User_Nickname');
+		echo $this->Form->input('User_Status');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
@@ -17,6 +14,6 @@
 	<ul>
 
 		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('User.User_ID')), null, __('Are you sure you want to delete # %s?', $this->Form->value('User.User_ID'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'admin')); ?></li>
 	</ul>
 </div>

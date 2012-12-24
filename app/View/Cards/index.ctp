@@ -15,9 +15,8 @@
 			<th><?php echo $this->Paginator->sort('Card_URL'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
-	<?php
-	foreach ($cards as $card): ?>
-	<tr>
+	<?php foreach ($cards as $card): ?>
+    <tr>
 		<td><?php echo h($card['Card']['Card_ID']); ?>&nbsp;</td>
 		<td><?php echo h($card['Card']['Card_Text']); ?>&nbsp;</td>
 		<td><?php echo h($card['Card']['Card_Photo']); ?>&nbsp;</td>

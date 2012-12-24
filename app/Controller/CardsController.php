@@ -1,11 +1,34 @@
 <?php
 App::uses('AppController', 'Controller');
+
 /**
  * Cards Controller
  *
  * @property Card $Card
  */
 class CardsController extends AppController {
+
+	public function beforeFilter() {
+        parent::beforeFilter();
+		$this->Auth->fields = array('username' => 'User_Email', 'password' => 'User_Password');
+		$this->Auth->allow('view');
+	}
+	
+/**
+ * isAuthorized method
+ *
+ * @param User $user
+ * @return boolean true
+ */
+
+	public function isAuthorized($user) {
+
+		if(in_array($this->action, array('addcard', 'index'))){
+			return true;
+		}
+		
+		return parent::isAuthorized($user);
+	}	
 
 /**
  * index method
@@ -15,6 +38,7 @@ class CardsController extends AppController {
 	public function index() {
 		$this->Card->recursive = 0;
 		$this->set('cards', $this->paginate());
+		$this->set('user', $this->Card->read(null, $this->Auth->user('User_ID')));
 	}
 
 /**
@@ -25,11 +49,16 @@ class CardsController extends AppController {
  * @return void
  */
 	public function view($id = null) {
+		$this->loadModel('User');
+		$this->layout = 'dashboard';
+		$this->set('title_for_layout', 'View Card');
 		$this->Card->id = $id;
 		if (!$this->Card->exists()) {
 			throw new NotFoundException(__('Invalid card'));
 		}
+		$this->set('user', $this->User->read(null, $this->Auth->user('User_ID')));
 		$this->set('card', $this->Card->read(null, $id));
+
 	}
 
 /**
@@ -96,4 +125,22 @@ class CardsController extends AppController {
 		$this->Session->setFlash(__('Card was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
+/**
+ *
+ * addcard method
+ *
+ * @return void
+ */
+ 
+ 	public function addcard(){
+		if ($this->request->is('post')) {
+			$this->Card->create();
+			$this->request->data['Card']['Card_Owner'] = $this->Auth->user('User_ID');
+        	if ($this->Card->save($this->request->data)) {
+				$this->Session->setFlash('Your card has been saved.');
+            	$this->redirect(array('action' => 'index'));
+        	}
+    	}
+	}
 }
+

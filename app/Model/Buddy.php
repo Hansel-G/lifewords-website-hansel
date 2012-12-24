@@ -14,10 +14,19 @@ class Buddy extends AppModel {
 	public $useTable = 'Buddies';
 
 /**
- * Primary key field
- *
- * @var string
+ * Model Associations
  */
-	public $primaryKey = 'Friend';
+	public $belongsTo =  array(
+		'Buddy1' => array(
+			'className' => 'User',
+			'foreignKey' => 'Buddy_1'
+		),
+		'Buddy2' => array(
+			'className' => 'User',
+			'foreignKey' => 'Buddy_2'
+		)
+	);
+
+
 
 }

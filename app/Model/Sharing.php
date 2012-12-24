@@ -20,4 +20,26 @@ class Sharing extends AppModel {
  */
 	public $primaryKey = 'Card_ID';
 
+/**
+ *
+ *
+ */
+ 	public $belongsTo = array(
+		'User' => array(
+			'className' => 'User',
+			'foreignKey' => 'User_Email'
+		)
+	);
+	
+/**
+ *
+ *
+ */
+ 	public $hasOne = array(
+ 		'Card' => array(
+			'className' => 'Card',
+			'foreignKey' => 'Card_ID'
+		) 
+	);	
+
 }
