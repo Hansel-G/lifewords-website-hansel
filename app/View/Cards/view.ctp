@@ -80,6 +80,28 @@
         else{
             $seconds = (string) $seconds;
         }
+		
+		// You sure you want to do this?
+		// $fadeintime = 3;
+		// $fadeouttime = 1;
+		// $maxmusic = 0.8;
+		// $maxbgm = 0.5;
+		// $maxvoice = 1.0;
+		// $increaseMusic = $maxmusic/($fadeintime*4);
+		// $increaseBGM = $maxBGM/($fadeintime*4);
+		// $increaseVoice = $maxVoice/($fadeintime*4);
+		// $decreaseMusic = $maxmusic/($fadeouttime*4);
+		// $decreaseBGM = $maxBGM/($fadeouttime*4);
+		// $decreaseVoice = $maxVoice/($fadeouttime*4);
+		//
+		//
+		//
+		// set all volume to 0
+		// when time reaches start time & current time is less than start time + fadein time, increase the volume by $increaser
+		// when time reaches start time & volume is less than max volume, increase volume by $increaser
+		//
+		// when time reaches endtime - fadeouttime & current time is less than end time, decrease the volume by $decreaser
+		// when time reaches endtime - & volume is more than 0, decrease volume by $decreaser
     ?>
     
     <script type="text/javascript">
@@ -119,7 +141,8 @@
 				},
 					
 				swfPath: '<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/lifewords/app/webroot/js' ?>',
-				supplied: 'mp3'
+				supplied: 'mp3',
+				volume: 0.8
 			});
         <?php endif; ?>
         
@@ -133,7 +156,8 @@
 				},
 				
 				swfPath: '<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/lifewords/app/webroot/js' ?>',
-				supplied: 'mp3'
+				supplied: 'mp3',
+				volume: 0.5
 				});
 		<?php endif; ?>
         
@@ -146,7 +170,8 @@
 				},
 				
 				swfPath: '<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/lifewords/app/webroot/js' ?>',
-				supplied: 'wav'
+				supplied: 'wav',
+				volume: 1.0
 				});
 		<?php endif;?>
         

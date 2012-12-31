@@ -9326,3 +9326,19 @@
 #3 /Volumes/Sarath/Root/lifewords/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
 #4 /Volumes/Sarath/Root/lifewords/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+2013-01-03 05:59:11 Error: [MissingControllerException] Controller class SharesController could not be found.
+#0 /Volumes/Sarath/Root/lifewords/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-03 05:59:17 Error: [MissingActionException] Action SharingsController::index() could not be found.
+#0 /Volumes/Sarath/Root/lifewords/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#1 /Volumes/Sarath/Root/lifewords/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(SharingsController), Object(CakeRequest), Object(CakeResponse))
+#2 /Volumes/Sarath/Root/lifewords/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-01-03 06:02:26 Error: Fatal Error (1): Call to a member function read() on a non-object in [/Volumes/Sarath/Root/lifewords/app/Controller/SharingsController.php, line 12]
+2013-01-03 06:02:26 Error: [FatalErrorException] Call to a member function read() on a non-object
+#0 /Volumes/Sarath/Root/lifewords/lib/Cake/Error/ErrorHandler.php(161): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/Volumes/Sarath...', 12)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/Volumes/Sarath...', 12, Array)
+#2 /Volumes/Sarath/Root/lifewords/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/Volumes/Sarath...', 12, Array)
+#3 /Volumes/Sarath/Root/lifewords/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

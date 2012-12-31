@@ -6,8 +6,9 @@
 			<th><?php echo $this->Paginator->sort('User_ID'); ?></th>
 			<th><?php echo $this->Paginator->sort('User_Email'); ?></th>
 			<th><?php echo $this->Paginator->sort('User_Password'); ?></th>
-			<th><?php echo $this->Paginator->sort('User_Profile_Photo'); ?></th>
+			<th><?php echo $this->Paginator->sort('User_Status'); ?></th>
 			<th><?php echo $this->Paginator->sort('User_Nickname'); ?></th>
+			<th><?php echo $this->Paginator->sort('User_Profile_Photo'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php
@@ -16,16 +17,12 @@
 		<td><?php echo h($user['User']['User_ID']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['User_Email']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['User_Password']); ?>&nbsp;</td>
-        
-        
-
-		<td><?php $path = 'http://'.$_SERVER['SERVER_NAME'].'/lifewords/app/webroot';
-		echo $this->Html->image($path.h($user['User']['User_Profile_Photo']), array('border' => 0, 'width' => '200', 'height' => '200'));
-		?>&nbsp;</td>
-		<td><?php echo h($user['User']['User_Nickname']); ?>&nbsp;</td>
+        <td><?php echo h($user['User']['User_Status']); ?>&nbsp;</td>
+        <td><?php echo h($user['User']['User_Nickname']); ?>&nbsp;</td>
+        <td><?php echo h($user['User']['User_Profile_Photo']); ?>&nbsp;</td>
+		
 		<td class="actions">
-
-
+			<?php echo $this->Html->link(__('View'), array('action' => 'view', $user['User']['User_ID'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $user['User']['User_ID'])); ?>
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $user['User']['User_ID']), null, __('Are you sure you want to delete # %s?', $user['User']['User_ID'])); ?>
 		</td>

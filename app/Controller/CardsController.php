@@ -23,7 +23,7 @@ class CardsController extends AppController {
 
 	public function isAuthorized($user) {
 
-		if(in_array($this->action, array('addcard', 'index'))){
+		if(in_array($this->action, array('index'))){
 			return true;
 		}
 		
@@ -62,47 +62,6 @@ class CardsController extends AppController {
 	}
 
 /**
- * add method
- *
- * @return void
- */
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->Card->create();
-			if ($this->Card->save($this->request->data)) {
-				$this->Session->setFlash(__('The card has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The card could not be saved. Please, try again.'));
-			}
-		}
-	}
-
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function edit($id = null) {
-		$this->Card->id = $id;
-		if (!$this->Card->exists()) {
-			throw new NotFoundException(__('Invalid card'));
-		}
-		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Card->save($this->request->data)) {
-				$this->Session->setFlash(__('The card has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The card could not be saved. Please, try again.'));
-			}
-		} else {
-			$this->request->data = $this->Card->read(null, $id);
-		}
-	}
-
-/**
  * delete method
  *
  * @throws MethodNotAllowedException
@@ -124,23 +83,6 @@ class CardsController extends AppController {
 		}
 		$this->Session->setFlash(__('Card was not deleted'));
 		$this->redirect(array('action' => 'index'));
-	}
-/**
- *
- * addcard method
- *
- * @return void
- */
- 
- 	public function addcard(){
-		if ($this->request->is('post')) {
-			$this->Card->create();
-			$this->request->data['Card']['Card_Owner'] = $this->Auth->user('User_ID');
-        	if ($this->Card->save($this->request->data)) {
-				$this->Session->setFlash('Your card has been saved.');
-            	$this->redirect(array('action' => 'index'));
-        	}
-    	}
 	}
 }
 

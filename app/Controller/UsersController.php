@@ -170,11 +170,6 @@ class UsersController extends AppController {
 				
 				//save the name of the user profile picture with their email id
 				$userProfilePhoto = '/storage/users/'.$User_Email.'/user_profile_photo.jpg';			
-				//$this->User->updateAll(
-				//array('User.User_Profile_Photo' => 'userProfilePhoto' ),
-				//array('User.User_ID' => $this->Auth->user('User_ID'))
-				//);
-				
 				
 				//creating folder for users profile picture
 				$nfolder = new Folder(false, true, 0777);
@@ -199,7 +194,7 @@ class UsersController extends AppController {
 	
 	
 /**
- * changepicture method
+ * settings method
  *
  * @return void
  */
